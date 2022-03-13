@@ -4,11 +4,22 @@ Vue.createApp({
             list: [],
             filter: "",
             filterType: "",
+            pokedexOpen: false,
+            pokemon: {
+                sprites:{
+                    other:{
+                        'official-artwork':{
+                            front_default: "",
+                        }
+                    }
+                }
+            },
         }
     },
     computed:{
         filteredList() {
         var self = this;
+        self.list = self.sortAPI(self.list);
         var result = [];
         for (var i in self.list) {
             var item = self.list[i];
@@ -38,8 +49,8 @@ Vue.createApp({
                             self.list.push(pokemon);
                         });
                     }
-                    self.list = self.sortAPI(self.list);
-                    console.log(self.list);
+                    // self.list = self.sortAPI(self.list);
+                    // console.log(self.list);
                 });
         },
         sortAPI(list){
@@ -59,7 +70,13 @@ Vue.createApp({
                 }
             }
             return false;
-        }
+        },
+        pokedex(item){
+            var self = this;
+            self.pokedexOpen = true;
+            self.pokemon = item;
+            console.log(self.pokemon);
+        },
     },
     mounted(){
         var self = this;

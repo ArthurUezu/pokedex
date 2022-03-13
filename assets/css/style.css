@@ -3,10 +3,12 @@
   border: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-dark);
 }
 
 html {
   width: 100%;
+  background-color: var(--background-color);
 }
 
 #app {
@@ -21,6 +23,7 @@ html {
   margin: 1rem 0;
 }
 #app #search #name-search {
+  background-color: var(--background-color);
   height: 1.7rem;
   font-size: 1rem;
   min-width: 200px;
@@ -28,38 +31,105 @@ html {
   border-bottom: 1px solid black;
 }
 #app #search #type-search {
+  background-color: var(--background-color);
   font-size: 1rem;
 }
-#app #pokemons {
+#app #content {
+  display: flex;
+  flex-direction: row;
+}
+#app #content #pokemons {
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-#app #pokemons .poke-card {
+#app #content #pokemons .poke-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   margin: 2px;
-  padding: 10px 10px 15px 10px;
-  color: white;
   box-shadow: -2px 2px rgba(0, 0, 0, 0.25);
   text-transform: capitalize;
 }
-#app #pokemons .poke-card .poke-types {
+#app #content #pokemons .poke-card a {
+  padding: 10px 10px 15px 10px;
+}
+#app #content #pokemons .poke-card a:hover {
+  cursor: pointer;
+}
+#app #content #pokemons .poke-card .name {
+  color: var(--text-light);
+}
+#app #content #pokemons .poke-card .poke-types {
   display: flex;
   flex-direction: row;
   font-size: 0.75rem;
   justify-content: space-evenly;
 }
-#app #pokemons .poke-card .poke-types .poke-label {
+#app #content #pokemons .poke-card .poke-types .poke-label {
+  color: var(--text-light);
   border-radius: 1rem;
   padding: 0 3px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   background-color: rgba(0, 0, 0, 0.15);
   margin-bottom: 0.5rem;
+}
+#app #content #pokedex {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  text-align: center;
+}
+#app #content #pokedex h3 {
+  margin-top: 10px;
+}
+#app #content #pokedex #poke-close {
+  background-color: var(--background-color);
+  font-size: 1rem;
+  width: 1.25rem;
+  align-self: flex-end;
+  cursor: pointer;
+}
+#app #content #pokedex #poke-image {
+  width: 90%;
+  align-self: center;
+}
+#app #content #pokedex #poke-name {
+  text-transform: capitalize;
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--text-dark);
+}
+#app #content #pokedex #poke-dimensions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--text-dark);
+}
+#app #content #pokedex #poke-stats {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--text-dark);
+}
+#app #content #pokedex #poke-stats .stat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+#app #content #pokedex #poke-stats .stat .stat-name {
+  text-transform: uppercase;
+}
+#app #content #pokedex #poke-abilities {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--text-dark);
+}
+#app #content #pokedex #poke-abilities p {
+  text-transform: capitalize;
 }
 
 /*# sourceMappingURL=style.css.map */

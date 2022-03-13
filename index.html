@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/theme.css">
+    <!-- <link href="./assets/css/theme-dark.css"> -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Uezu Pokedex</title>
 </head>
@@ -16,7 +17,7 @@
         <section id="search">
             <input id="name-search" v-model="filter" type="text" placeholder="Search Pokémon">
             <select id="type-search" v-model="filterType">
-                <option value="">Tipo</option>
+                <option value="">Type</option>
                 <option value="bug">Bug</option>
                 <option value="dark">Dark</option>
                 <option value="dragon">Dragon</option>
@@ -37,15 +38,43 @@
                 <option value="water">Water</option>
             </select>
         </section>
-        <section id="pokemons">
-            <div class="poke-card" v-for="item in filteredList" :style="'background-color: var(--' + item.types[0].type.name + '-type);'" >
-                <img :src="item.sprites.front_default" alt="">
-                <div class="poke-types">
-                    <p class="poke-label" v-for="type in item.types">
-                        {{type.type.name}}
-                    </p>
+        <section id="content">
+            <div id="pokemons">
+                <div class="poke-card" v-for="item in filteredList" :style="'background-color: var(--' + item.types[0].type.name + '-type);'" >
+                    <a @click="pokedex(item)">
+                        <img :src="item.sprites.front_default" alt="">
+                        <div class="poke-types">
+                            <p class="poke-label" v-for="type in item.types">
+                                {{type.type.name}}
+                            </p>
+                        </div>
+                        <h5><strong class="name">{{item.name}}</strong></h5>
+                    </a>
                 </div>
-                <h5><strong>{{item.name}}</strong></h5>
+            </div>
+            <div v-show="pokedexOpen" id="pokedex">
+                <button id="poke-close" @click="pokedexOpen=false;">X</button>
+                <img id="poke-image" :src="pokemon.sprites.other['official-artwork'].front_default" alt="">
+                <h1 id="poke-name">{{pokemon.name}}</h1>
+                <h3>Dimensions</h3>
+                <div id="poke-dimensions">
+                    <p>Weight: {{pokemon.weight}}hg</p>
+                    <p>Height: {{pokemon.height}}dm</p>
+                </div>
+                <h3>Stats</h3>
+                <div id="poke-stats">
+                    <div v-for="stat in pokemon.stats" class="stat">
+                        <p class="stat-name">{{stat.stat.name}}</p>
+                        <p>{{stat.base_stat}}</p>
+                    </div>
+                </div>
+                <h3>Abilities</h3>
+                <div id="poke-abilities">
+                    <div v-for="ability in pokemon.abilities">
+                        
+                        <p>{{ability.ability.name}}</p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
