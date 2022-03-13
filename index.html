@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/theme.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Uezu Pokedex</title>
+</head>
+<body>
+    <header>
+        <!-- <h1>Pokedex</h1> -->
+    </header>
+    <div id="app">
+        <section id="search">
+            <input id="name-search" v-model="filter" type="text" placeholder="Search Pokémon">
+            <select id="type-search" v-model="filterType">
+                <option value="">Tipo</option>
+                <option value="bug">Bug</option>
+                <option value="dark">Dark</option>
+                <option value="dragon">Dragon</option>
+                <option value="electric">Electric</option>
+                <option value="fairy">Fairy</option>
+                <option value="fighting">Fighting</option>
+                <option value="fire">Fire</option>
+                <option value="flying">Flying</option>
+                <option value="ghost">Ghost</option>
+                <option value="grass">Grass</option>
+                <option value="ground">Ground</option>
+                <option value="ice">Ice</option>
+                <option value="normal">Normal</option>
+                <option value="poison">Poison</option>
+                <option value="psychic">Psychic</option>
+                <option value="rock">Rock</option>
+                <option value="steel">Steel</option>
+                <option value="water">Water</option>
+            </select>
+        </section>
+        <section id="pokemons">
+            <div class="poke-card" v-for="item in filteredList" :style="'background-color: var(--' + item.types[0].type.name + '-type);'" >
+                <img :src="item.sprites.front_default" alt="">
+                <div class="poke-types">
+                    <p class="poke-label" v-for="type in item.types">
+                        {{type.type.name}}
+                    </p>
+                </div>
+                <h5><strong>{{item.name}}</strong></h5>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="./assets/js/main.js"></script>
+</html>

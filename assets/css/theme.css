@@ -1,0 +1,20 @@
+:root{
+    --bug-type: #A8B820;
+    --dark-type: #705848;
+    --dragon-type: #C6A114;
+    --electric-type: #F8D030;
+    --fairy-type: #EE99AC;
+    --fighting-type: #C03028;
+    --fire-type: #F08030;
+    --flying-type: #A890F0;
+    --ghost-type: #705898;
+    --grass-type: #78C850;
+    --ground-type: #E0C068;
+    --ice-type: #98D8D8;
+    --normal-type: #A8A878;
+    --poison-type: #A040A0;
+    --psychic-type: #F85888;
+    --rock-type: #B8A038;
+    --steel-type: #B8B8D0;
+    --water-type: #6890F0;
+}
