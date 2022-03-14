@@ -24,3 +24,6 @@
     --text-light: #E9ECEF;
 
 }
+[v-cloak]{
+    display: none;
+}

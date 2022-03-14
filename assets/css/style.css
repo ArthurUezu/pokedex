@@ -132,4 +132,13 @@ html {
   text-transform: capitalize;
 }
 
+@media (max-width: 600px) {
+  #content {
+    flex-direction: column-reverse !important;
+  }
+  #content #pokedex {
+    width: 100% !important;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
